@@ -129,12 +129,13 @@ ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
 --
 
 CREATE TABLE public.other_bodies (
-    id integer NOT NULL,
-    description character varying(255),
+    other_bodies_id integer NOT NULL,
+    description character varying(255) NOT NULL,
     has_life boolean,
     age_in_millions_of_years integer,
     planet_types text,
-    distance_from_earth integer
+    distance_from_earth integer,
+    name character varying(255)
 );
 
 
@@ -159,7 +160,7 @@ ALTER TABLE public.other_bodies_id_seq OWNER TO freecodecamp;
 -- Name: other_bodies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.other_bodies_id_seq OWNED BY public.other_bodies.id;
+ALTER SEQUENCE public.other_bodies_id_seq OWNED BY public.other_bodies.other_bodies_id;
 
 
 --
@@ -259,10 +260,10 @@ ALTER TABLE ONLY public.moon ALTER COLUMN moon_id SET DEFAULT nextval('public.mo
 
 
 --
--- Name: other_bodies id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: other_bodies other_bodies_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.other_bodies ALTER COLUMN id SET DEFAULT nextval('public.other_bodies_id_seq'::regclass);
+ALTER TABLE ONLY public.other_bodies ALTER COLUMN other_bodies_id SET DEFAULT nextval('public.other_bodies_id_seq'::regclass);
 
 
 --
@@ -325,28 +326,28 @@ INSERT INTO public.moon VALUES (22, 'Some other moon', 'Some other Satellite 17'
 -- Data for Name: other_bodies; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.other_bodies VALUES (1, 'Some other body', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (2, 'Some other body 2', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (3, 'Some other body 3', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (4, 'Some other body 3', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (5, 'Some other body 4', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (6, 'Some other body 5', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (7, 'Some other body 6', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (8, 'Some other body 7', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (9, 'Some other body 8', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (10, 'Some other body 9', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (11, 'Some other body 10', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (12, 'Some other body 11', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (13, 'Some other body 12', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (14, 'Some other body 13', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (15, 'Some other body 14', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (16, 'Some other body 15', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (17, 'Some other body 16', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (18, 'Some other body 17', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (19, 'Some other body 18', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (20, 'Some other body 19', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (21, 'Some other body 20', false, 23545000, 'Celestial Body', 123980);
-INSERT INTO public.other_bodies VALUES (22, 'Some other body 21', false, 23545000, 'Celestial Body', 123980);
+INSERT INTO public.other_bodies VALUES (1, 'Some other body', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (2, 'Some other body 2', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (3, 'Some other body 3', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (4, 'Some other body 3', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (5, 'Some other body 4', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (6, 'Some other body 5', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (7, 'Some other body 6', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (8, 'Some other body 7', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (9, 'Some other body 8', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (10, 'Some other body 9', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (11, 'Some other body 10', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (12, 'Some other body 11', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (13, 'Some other body 12', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (14, 'Some other body 13', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (15, 'Some other body 14', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (16, 'Some other body 15', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (17, 'Some other body 16', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (18, 'Some other body 17', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (19, 'Some other body 18', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (20, 'Some other body 19', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (21, 'Some other body 20', false, 23545000, 'Celestial Body', 123980, NULL);
+INSERT INTO public.other_bodies VALUES (22, 'Some other body 21', false, 23545000, 'Celestial Body', 123980, NULL);
 
 
 --
@@ -376,6 +377,10 @@ INSERT INTO public.star VALUES (1, 'Our Sun', 'Sun', 23545000, 123980, NULL, 'Ce
 INSERT INTO public.star VALUES (2, 'Neighbor Star 1', 'Neighbor Star 1', 23545000, 123980, NULL, 'Celestial Body', false, NULL);
 INSERT INTO public.star VALUES (3, 'Neighbor Star 2', 'Neighbor Star 2', 23545000, 123980, NULL, 'Celestial Body', false, NULL);
 INSERT INTO public.star VALUES (4, 'Neighbor Star 3', 'Neighbor Star 3', 23545000, 123980, NULL, 'Celestial Body', false, NULL);
+INSERT INTO public.star VALUES (5, 'Some other Star 1', 'Some Other Star 1', 23432, 32542, 10.000, 'Celestial Body', false, NULL);
+INSERT INTO public.star VALUES (6, 'Some other Star 2', 'Some Other Star 2', 23432, 32542, 10.000, 'Celestial Body', false, NULL);
+INSERT INTO public.star VALUES (7, 'Some other Star 3', 'Some Other Star 3', 23432, 32542, 10.000, 'Celestial Body', false, NULL);
+INSERT INTO public.star VALUES (8, 'Some other Star 4', 'Some Other Star 4', 23432, 32542, 10.000, 'Celestial Body', false, NULL);
 
 
 --
@@ -410,7 +415,7 @@ SELECT pg_catalog.setval('public.planet_planet_id_seq', 13, true);
 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_star_id_seq', 4, true);
+SELECT pg_catalog.setval('public.star_star_id_seq', 8, true);
 
 
 --
@@ -450,7 +455,15 @@ ALTER TABLE ONLY public.moon
 --
 
 ALTER TABLE ONLY public.other_bodies
-    ADD CONSTRAINT other_bodies_pkey PRIMARY KEY (id);
+    ADD CONSTRAINT other_bodies_pkey PRIMARY KEY (other_bodies_id);
+
+
+--
+-- Name: other_bodies other_bodies_unq; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.other_bodies
+    ADD CONSTRAINT other_bodies_unq UNIQUE (other_bodies_id);
 
 
 --
